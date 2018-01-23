@@ -2,6 +2,21 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div>
-    
+<div class="forum-container container">
+    @foreach (var forum in (IQueryable<Forum>)ViewData["Forums"])
+      {
+        <div class="row">
+            <div class="community-boards border-around">
+                <div class="community-boards-title">@forum.Name</div>
+                    <div class="col community-boards border-around">
+                    @foreach (var subforum in forum.Subforums)
+                    {
+                        <div class="sub-forum">@subforum.Name</div>
+                    }
+                </div>
+
+            </div>
+        </div>
+    }
+    @ViewData["Subforums"]
 </div>

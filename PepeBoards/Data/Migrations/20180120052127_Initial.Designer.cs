@@ -11,9 +11,10 @@ using System;
 namespace PepeBoards.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180120052127_Initial")]
+    partial class Initial
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -179,34 +180,6 @@ namespace PepeBoards.Data.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
-            modelBuilder.Entity("PepeBoards.Models.Forum", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Name");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("Forum");
-                });
-
-            modelBuilder.Entity("PepeBoards.Models.Subforum", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<int>("ForumID");
-
-                    b.Property<string>("Name");
-
-                    b.HasKey("ID");
-
-                    b.HasIndex("ForumID");
-
-                    b.ToTable("Subforum");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole")
@@ -249,14 +222,6 @@ namespace PepeBoards.Data.Migrations
                     b.HasOne("PepeBoards.Models.ApplicationUser")
                         .WithMany()
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("PepeBoards.Models.Subforum", b =>
-                {
-                    b.HasOne("PepeBoards.Models.Forum", "Forum")
-                        .WithMany("Subforums")
-                        .HasForeignKey("ForumID")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618

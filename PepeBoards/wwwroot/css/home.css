@@ -2,4 +2,35 @@
     background-image:url('/images/pepeboards.jpg');
     background-repeat: no-repeat;
     background-size: cover;
+    background-attachment: fixed;
+}
+
+.border-around {
+    border-style: solid;
+    border-width: 2px;
+    border-color: #708090;
+    border-radius: 4px;
+}
+
+.community-boards {
+    background-color: #2f4f4f;
+    margin-top: 25px;
+}
+
+.community-boards-title{
+    font-size: 24px;
+}
+
+.sub-forum {
+    background-color: #708090;
+    height: 40px;
+}
+
+.sub-forum:nth-child(odd) {
+    background-color: #696969;
+}
+
+.forum-container {
+    color: white;
+    margin-top: 250px;
 }
